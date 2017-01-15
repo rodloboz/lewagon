@@ -1,5 +1,11 @@
 def place_bet
-  gets.chomp.to_i
+  bet = gets.chomp
+  until /\d/.match(bet) do
+    puts 'You must enter a whole number (minimum 1):'
+    print '> '
+    bet = gets.chomp
+  end
+  bet.to_i
 end
 
 def calculate_winnings

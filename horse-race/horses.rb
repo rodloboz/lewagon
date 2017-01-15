@@ -10,7 +10,7 @@ end
 def get_horses
   horses = {}
   loop do
-    puts 'Enter the horse name:'
+    puts 'Enter horse name:'
     print '> '
     horse = gets.chomp
 

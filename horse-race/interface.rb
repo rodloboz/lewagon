@@ -62,8 +62,9 @@ loop do
 
   puts 'Play another race (y/n)?'
   print '> '
-  choice = gets.chomp.downcase
+  choice = sanitize_yes_no
   break if choice == 'n'
 end
 
+puts "You left the race track with #{total}€"
 puts '*** Goodbye! ***'
