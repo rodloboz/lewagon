@@ -21,6 +21,7 @@ puts 'Play with default horses (y/n)?'
 choice = sanitize_yes_no
 
 horses = get_horses if choice == 'n'
+choice == 'n' ? save = false : save = true
 
 loop do
   puts 'This is the roster for this race:'
@@ -45,5 +46,5 @@ loop do
 end
 
 end_result(players)
-File.write('horses.yml', horses.to_yaml)
+File.write('horses.yml', horses.to_yaml) if save
 puts '*** Goodbye! ***'
