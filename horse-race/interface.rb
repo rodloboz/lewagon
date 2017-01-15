@@ -2,7 +2,17 @@ require_relative "horses"
 require_relative "results"
 require_relative "bet"
 
-horses = ['Bronco', 'John Wayne', 'Jack Sparrow', 'Michael Bolton', 'Wyatt Earp', 'Ruby', 'Crazy Rooster', 'Donkey Kong']
+horses = {
+  'Bronco' => 0,
+  'John Wayne' => 0,
+  'Jack Sparrow' => 0,
+  'Michael Bolton' => 0,
+  'Wyatt Earp' => 0,
+  'Ruby' => 0,
+  'Crazy Rooster' => 0,
+  'Donkey Kong' => 0
+}
+
 total = 20.00
 
 puts '*** Hello, welcome to the race track ***'
@@ -13,7 +23,6 @@ puts 'Play with default names (y/n)?'
 choice = gets.chomp.downcase
 
 get_horses(horses) if choice == 'n'
-
 
 loop do
   puts 'This is the roster for this race:'
@@ -26,18 +35,20 @@ loop do
   print '> '
   bet_amount = place_bet
   total -= bet_amount.round(2)
-  race(horses)
-  say_result(horses)
+  roster = get_race_roster(horses)
+  race(roster)
+  say_result(roster)
+  update_winners(roster,horses)
 
-  if picked_horse == horses[0]
+  if picked_horse == roster[0]
     bet_amount += calculate_winnings + 5
     puts 'Contratulations! Your horse got 1st place!'
     puts "You won #{bet_amount}€"
-  elsif picked_horse == horses[1]
+  elsif picked_horse == roster[1]
     bet_amount += calculate_winnings + 2
     puts 'Contratulations! Your horse got 2nd place!'
     puts "You won #{bet_amount}€"
-  elsif picked_horse == horses[2]
+  elsif picked_horse == roster[2]
     bet_amount += calculate_winnings + 0.5
     puts 'Contratulations! Your horse got 3rd place!'
     puts "You won #{bet_amount}€"

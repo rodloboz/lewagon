@@ -1,28 +1,36 @@
-def race(horses)
-  horses.shuffle!
+def race(roster)
+  roster.shuffle!
   3.times do
-    horses.shuffle!
-    puts "Horses are racing... #{horses.first} has the lead!!"
+    roster.shuffle!
+    puts "Horses are racing... #{roster.first} has the lead!!"
     sleep(2)
   end
 end
 
 def get_horses(horses)
-  horses = []
+  horses = {}
   loop do
     puts 'Enter the horse name:'
     print '> '
     horse = gets.chomp
 
     break if horse == ''
-    horses << horse
+    horses[horse] = 0
   end
 end
 
 def list_horses(horses)
-  horses.each { |horse| puts "- #{horse}" }
+  horses.each { |horse, wins| puts "- #{horse}, has #{wins} win(s)" }
 end
 
 def pick_horse(horses)
   gets.chomp
+end
+
+def get_race_roster(horses)
+  horses.keys
+end
+
+def update_winners(roster, horses)
+  horses[roster.first] += 1
 end
