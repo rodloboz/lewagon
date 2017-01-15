@@ -21,3 +21,7 @@ end
 def list_horses(horses)
   horses.each { |horse| puts "- #{horse}" }
 end
+
+def pick_horse(horses)
+  gets.chomp
+end
