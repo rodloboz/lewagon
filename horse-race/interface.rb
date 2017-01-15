@@ -60,6 +60,12 @@ loop do
 
   total += bet_amount.round(2)
 
+  if total < 1
+    puts 'You don\'t have enough money to place another bet!'
+    puts 'GAME OVER!!!'
+    break
+  end
+
   puts 'Play another race (y/n)?'
   print '> '
   choice = sanitize_yes_no
