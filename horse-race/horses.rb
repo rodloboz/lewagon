@@ -7,7 +7,7 @@ def race(roster)
   end
 end
 
-def get_horses(horses)
+def get_horses
   horses = {}
   loop do
     puts 'Enter the horse name:'
@@ -17,6 +17,7 @@ def get_horses(horses)
     break if horse == ''
     horses[horse] = 0
   end
+  horses
 end
 
 def list_horses(horses)

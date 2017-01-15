@@ -1,6 +1,7 @@
 require_relative "horses"
 require_relative "results"
 require_relative "bet"
+require_relative "sanitize"
 
 horses = {
   'Bronco' => 0,
@@ -20,9 +21,9 @@ puts '*** Enter new horses or play with the default names, ***'
 puts '*** and then place your bet! ***'
 puts
 puts 'Play with default names (y/n)?'
-choice = gets.chomp.downcase
+choice = sanitize_yes_no
 
-get_horses(horses) if choice == 'n'
+horses = get_horses if choice == 'n'
 
 loop do
   puts 'This is the roster for this race:'
