@@ -19,7 +19,15 @@ def calculate_winnings(factor)
   winnings.to_f
 end
 
-
-
-20
-
+def place_bets(players, horses)
+  players.each_value do |player|
+    puts "#{player[:name]}, you have a total of #{player[:total]}€"
+    puts 'Pick your winning horse:'
+    print '> '
+    player[:picked_horse] = pick_horse(horses)
+    puts 'Place your bet:'
+    print '> '
+    player[:bet_amount] = place_bet(player[:total])
+    player[:total] -= player[:bet_amount].round(2)
+  end
+end
