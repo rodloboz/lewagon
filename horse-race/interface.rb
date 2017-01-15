@@ -1,20 +1,13 @@
+
+require 'yaml'
+
 require_relative "horses"
 require_relative "results"
 require_relative "bet"
 require_relative "sanitize"
 require_relative "players"
 
-horses = {
-  'Bronco' => 0,
-  'John Wayne' => 0,
-  'Jack Sparrow' => 0,
-  'Michael Bolton' => 0,
-  'Wyatt Earp' => 0,
-  'Ruby' => 0,
-  'Crazy Rooster' => 0,
-  'Donkey Kong' => 0
-}
-
+horses = YAML.load_file('horses.yml')
 players = Hash.new { |hash, key|  hash[key] = 20.00 }
 
 puts '*** Hello, welcome to the race track ***'
@@ -52,4 +45,5 @@ loop do
 end
 
 end_result(players)
+File.write('horses.yml', horses.to_yaml)
 puts '*** Goodbye! ***'
