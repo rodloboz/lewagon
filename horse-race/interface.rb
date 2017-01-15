@@ -34,7 +34,7 @@ loop do
   picked_horse = pick_horse(horses)
   puts 'Place your bet:'
   print '> '
-  bet_amount = place_bet
+  bet_amount = place_bet(total)
   total -= bet_amount.round(2)
   roster = get_race_roster(horses)
   race(roster)
@@ -42,23 +42,24 @@ loop do
   update_winners(roster,horses)
 
   if picked_horse == roster[0]
-    bet_amount += calculate_winnings + 5
+    winnings = bet_amount * calculate_winnings(15)
     puts 'Contratulations! Your horse got 1st place!'
-    puts "You won #{bet_amount}€"
+    puts "You won #{winnings}€"
   elsif picked_horse == roster[1]
-    bet_amount += calculate_winnings + 2
+    winnings = bet_amount * calculate_winnings(6)
     puts 'Contratulations! Your horse got 2nd place!'
-    puts "You won #{bet_amount}€"
+    puts "You won #{winnings}€"
   elsif picked_horse == roster[2]
-    bet_amount += calculate_winnings + 0.5
+    winnings = bet_amount * calculate_winnings(2)
     puts 'Contratulations! Your horse got 3rd place!'
-    puts "You won #{bet_amount}€"
+    puts "You won #{winnings}€"
   else
-    bet_amount = 0
-    puts 'Your horse didn\'t make the podium. You lost!'
+    winnings = 0
+    puts "Your horse didn\'t make the podium. You lost #{bet_amount}€!"
   end
 
-  total += bet_amount.round(2)
+  total += winnings
+  total.round(2)
 
   if total < 1
     puts 'You don\'t have enough money to place another bet!'

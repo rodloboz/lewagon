@@ -9,13 +9,21 @@ end
 
 def get_horses
   horses = {}
+  number_of_horses = 0
   loop do
     puts 'Enter horse name:'
     print '> '
     horse = gets.chomp
 
-    break if horse == ''
+    if horse == '' && number_of_horses < 6
+      puts 'You must have at least 6 horses'
+      puts "Please enter #{6 - number_of_horses} more horse(s)"
+      redo
+    elsif horse == '' && number_of_horses >= 6
+      break
+    end
     horses[horse] = 0
+    number_of_horses += 1
   end
   horses
 end
@@ -25,7 +33,13 @@ def list_horses(horses)
 end
 
 def pick_horse(horses)
-  gets.chomp
+  horse = gets.chomp
+  until horses.key?(horse) do
+    puts 'I don\'t know that horse! Please pick a valid horse!'
+    print '> '
+    horse = gets.chomp
+  end
+  horse
 end
 
 def get_race_roster(horses)
