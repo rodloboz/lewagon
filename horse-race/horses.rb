@@ -8,6 +8,7 @@ def race(horses)
 end
 
 def get_horses(horses)
+  horses = []
   loop do
     puts 'Enter the horse name:'
     print '> '

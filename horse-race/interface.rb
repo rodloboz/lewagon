@@ -2,14 +2,18 @@ require_relative "horses"
 require_relative "results"
 require_relative "bet"
 
-horses = []
+horses = ['Bronco', 'John Wayne', 'Jack Sparrow', 'Michael Bolton', 'Wyatt Earp', 'Ruby', 'Crazy Rooster', 'Donkey Kong']
 total = 20.00
 
 puts '*** Hello, welcome to the race track ***'
-puts '*** Please enter the name of the horses ***'
-puts '*** and place your bet! ***'
+puts '*** Enter new horses or play with the default names, ***'
+puts '*** and then place your bet! ***'
 puts
-get_horses(horses)
+puts 'Play with default names (y/n)?'
+choice = gets.chomp.downcase
+
+get_horses(horses) if choice == 'n'
+
 
 loop do
   puts 'This is the roster for this race:'
