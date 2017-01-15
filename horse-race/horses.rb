@@ -1,7 +1,8 @@
 def race(horses)
   horses.shuffle!
   3.times do
-    puts 'Horses are racing...'
+    horses.shuffle!
+    puts "Horses are racing... #{horses.first} has the lead!!"
     sleep(2)
   end
 end
