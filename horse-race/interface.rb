@@ -33,8 +33,9 @@ loop do
   update_winners(roster,horses)
   player_winnings(roster, players)
 
-  unless can_bet?(players).empty?
-    puts 'You don\'t have enough money to place another bet!'
+  broke_players = broke_players(players)
+  unless broke_players.empty?
+    puts "#{broke_players}, you don\'t have enough money to place another bet!"
     puts 'GAME OVER!!!'
     break
   end

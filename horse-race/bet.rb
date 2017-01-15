@@ -15,7 +15,7 @@ def place_bet(total)
 end
 
 def calculate_winnings(factor)
-  winnings = '%.2f' % (factor * rand(0.01..1).round(2))
+  winnings = '%.2f' % (factor * rand(1.0..5).round(2))
   winnings.to_f
 end
 

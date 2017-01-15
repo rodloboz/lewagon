@@ -21,15 +21,15 @@ end
 def player_winnings(roster, players)
   players.each_value do |player|
     if player.value?(roster[0])
-      winnings = player[:bet_amount].to_i * calculate_winnings(15)
+      winnings = player[:bet_amount].to_i * calculate_winnings(3)
       puts "Contratulations, #{player[:name]}! Your horse got 1st place!"
       puts "You won #{winnings}€"
     elsif player.value?(roster[1])
-      winnings = player[:bet_amount] * calculate_winnings(6)
+      winnings = player[:bet_amount] * calculate_winnings(2)
       puts "Contratulations, #{player[:name]}! Your horse got 2nd place!"
       puts "You won #{winnings}€"
     elsif player.value?(roster[2])
-      winnings = player[:bet_amount] * calculate_winnings(2)
+      winnings = player[:bet_amount] * calculate_winnings(1)
       puts "Contratulations, #{player[:name]}! Your horse got 3rd place!"
       puts "You won #{winnings}€"
     else
@@ -52,5 +52,14 @@ def end_result(players)
   players.each_value do |player|
     puts "#{player[:name]}, you left the race track with #{player[:total]}€"
   end
+end
+
+def broke_players(players)
+broke_players = can_bet?(players)
+list = []
+broke_players.each_value do |player|
+  list << player.values[0]
+end
+list.join(', ')
 end
 
