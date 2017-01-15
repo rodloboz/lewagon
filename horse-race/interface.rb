@@ -11,7 +11,7 @@ puts '*** and place your bet! ***'
 puts
 get_horses(horses)
 
-unless horses.empty?
+loop do
   puts 'This is the roster for this race:'
   list_horses(horses)
   puts "You have a total of #{total}€"
@@ -21,25 +21,33 @@ unless horses.empty?
   puts 'Place your bet:'
   print '> '
   bet_amount = place_bet
-  total -= bet_amount
+  total -= bet_amount.round(2)
   race(horses)
   say_result(horses)
 
   if picked_horse == horses[0]
-    bet_amount = calculate_winnings(bet_amount) + 5
+    bet_amount += calculate_winnings + 5
     puts 'Contratulations! Your horse got 1st place!'
     puts "You won #{bet_amount}€"
   elsif picked_horse == horses[1]
-    bet_amount = calculate_winnings(bet_amount) + 2
+    bet_amount += calculate_winnings + 2
     puts 'Contratulations! Your horse got 2nd place!'
     puts "You won #{bet_amount}€"
   elsif picked_horse == horses[2]
-    bet_amount = calculate_winnings(bet_amount) + 0.5
+    bet_amount += calculate_winnings + 0.5
     puts 'Contratulations! Your horse got 3rd place!'
     puts "You won #{bet_amount}€"
   else
+    bet_amount = 0
     puts 'Your horse didn\'t make the podium. You lost!'
   end
+
+  total += bet_amount.round(2)
+
+  puts 'Play another race (y/n)?'
+  print '> '
+  choice = gets.chomp.downcase
+  break if choice == 'n'
 end
 
 puts '*** Goodbye! ***'
