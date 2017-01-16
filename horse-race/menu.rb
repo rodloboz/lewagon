@@ -1,0 +1,21 @@
+def menu
+
+  puts '**************************************************************************************'
+  puts ''
+  puts '**  HHH     HHH  HHHHHHHHHHHH  HHHHHHHHHHH    HHHHHHHHHHHH  HHHHHHHHHHHH  HHHHHHHHHHHH'
+  puts '**  HHH     HHH  HHHHHHHHHHHH  HHHHHHHHHHH    HHHHHHHHHHHH  HHHHHHHHHHHH  HHHHHHHHHHHH'
+  puts '**  HHH     HHH  HHH     HHHH  HHH     HHH    HHH           HHH           HHH'
+  puts '**  HHH     HHH  HHH     HHHH  HHH     HHH     HHH          HHH            HHH'
+  puts '**  HHHHHHHHHHH  HHH     HHHH  HHH     HHH        HHH       HHHHHHHHH         HHH'
+  puts '**  HHHHHHHHHHH  HHH     HHHH  HHHHHHHHHHH          HHH     HHHHHHHH           HHH'
+  puts '**  HHH     HHH  HHH     HHHH  HHHHHHHHHHH           HHH    HHH                  HHH'
+  puts '**  HHH     HHH  HHH     HHHH  HHH    HHH              HHH  HHH                    HHH'
+  puts '**  HHH     HHH  HHHHHHHHHHHH  HHH     HHH    HHHHHHHHHHHH  HHHHHHHHHHHH  HHHHHHHHHHHH'
+  puts '**  HHH     HHH  HHHHHHHHHHHH  HHH       HHH  HHHHHHHHHHHH  HHHHHHHHHHHH  HHHHHHHHHHHH'
+  puts ''
+  puts '**************************************************************************************'
+  puts '** Hello, welcome to the race track! **'
+  puts '** Choose the number of players and bet on the default horses **'
+  puts '** or choose your own! **'
+  puts ''
+end
