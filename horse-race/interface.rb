@@ -6,14 +6,12 @@ require_relative "results"
 require_relative "bet"
 require_relative "sanitize"
 require_relative "players"
+require_relative "menu"
 
 horses = YAML.load_file('horses.yml')
 players = Hash.new { |hash, key|  hash[key] = 20.00 }
 
-puts '*** Hello, welcome to the race track ***'
-puts '*** Enter new horses or play with the default names, ***'
-puts '*** and then place your bet! ***'
-puts
+menu
 puts 'How many players?'
 players = create_players(players)
 
