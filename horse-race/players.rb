@@ -21,11 +21,11 @@ end
 def player_winnings(roster, players)
   players.each_value do |player|
     if player.value?(roster[0])
-      winnings = player[:bet_amount].to_i * calculate_winnings(3)
+      winnings = player[:bet_amount].to_i * calculate_winnings(6)
       puts "Contratulations, #{player[:name]}! Your horse got 1st place!"
       puts "You won #{winnings}€"
     elsif player.value?(roster[1])
-      winnings = player[:bet_amount] * calculate_winnings(2)
+      winnings = player[:bet_amount] * calculate_winnings(3)
       puts "Contratulations, #{player[:name]}! Your horse got 2nd place!"
       puts "You won #{winnings}€"
     elsif player.value?(roster[2])
